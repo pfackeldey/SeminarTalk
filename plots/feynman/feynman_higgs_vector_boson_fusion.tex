@@ -1,0 +1,21 @@
+\begin{tikzpicture}[line width=1.5pt, scale=1.2]
+\draw[step=0.5cm, very thin, transparent] (0cm,0cm) grid (4cm,2cm);
+
+\draw[fermion] (0cm,0cm) -- (2cm,0cm);
+\node at (0cm-0.3cm,0cm) {$q_2$};
+
+\draw[fermion] (2cm,0cm) -- (4cm,0cm);
+\node at (4cm+0.3cm,0cm) {$q_2'$};
+
+\draw[fermion] (0cm,2cm) -- (2cm,2cm);
+\node at (0cm-0.3cm,2cm) {$q_1$};
+
+\draw[fermion] (2cm,2cm) -- (4cm,2cm);
+\node at (4cm+0.3cm,2cm) {$q_1'$};
+
+\draw[scalarnoarrow, color1, line width=3pt] (2cm,1cm) -- (4cm,1cm);
+\node at (4cm+0.3cm,1cm) [color1]{$H$};
+
+\draw[vector] (2cm,1cm) -- node[left]{$W$, $Z$} (2cm,0cm);
+\draw[vector] (2cm,1cm) -- node[left]{$W$, $Z$} (2cm,2cm);
+\end{tikzpicture}
