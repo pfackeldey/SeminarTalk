@@ -1,5 +1,6 @@
 \documentclass[xcolor={usenames,dvipsnames,svgnames,table}]{beamer}
 \usepackage{beamer_rwth_theme}
+\usepackage{ulem}
 \newcommand{\av}[1]{\ensuremath{\langle #1 \rangle}\xspace}
 
 \begin{document}
@@ -65,20 +66,40 @@
 % ===========================================================
 % Slides
 % ===========================================================
+\begin{frame}
+	\frametitle{O Higgs Boson, where art thou?}
+	\centering \textcolor{color1}{Preparation time: 1964 - 2008}
+	\begin{tabbing}
+		\hspace{1cm}\=\hspace{1cm}\=\kill
+		\> 400\'{} ml \> Theorists! (Brout, Englert, Higgs and GHK) \\
+		\> 800\'{} g \> New theory: Higgs mechanism\\
+		\> 3\'{} cups\> 1964 Symmetry breaking papers\\
+		\> 1\'{} tbsp \> Circular collider (LHC)\\
+		\> 1\'{} cup \> Detector (CMS/ATLAS)\\
+	\end{tabbing}
+	\centering \textcolor{color1}{Cooking time: 2009 - 2012}
+	\begin{tabbing}
+		\hspace{1cm}\=\hspace{1cm}\=\kill
+		\> 2\'{} tsp \> Proton bunches\\
+		\> 10\'{} oz \> Grid computing (CERN, FNAL, KIT, ...)\\
+		\> 5\'{} g \> Analysis software \\
+		\> 1000\'{} cans \> Low-paid grad students\\
+	\end{tabbing}
+\end{frame}
 
 \begin{frame}
-    \frametitle{Higgs Mechanism}
+    \frametitle{Higgs Mechanism: A New Hope}
     \begin{itemize}
-        \item The Standard Model (SM) misses mass terms for the weak gauge bosons
-        \item \underline{Proposal:} Spontaneous electroweak symmetry breaking (Higgs mechanism)
+        \item \underline{\textbf{Problem:}} The Standard Model (SM) misses mass terms for the weak gauge bosons
+        \item \underline{\textbf{Proposal:}} Spontaneous electroweak symmetry breaking (Higgs mechanism)
         \item New scalar field $\Phi$ based on the following lagrangian is introduced:
     \end{itemize}
     \begin{gather*}
         \label{eq_lagrangian_higgs}
-        \mathcal{L}_\mathrm{Higgs} = (\mathrm{D}\xspace^\mu \, \Phi)^\dagger (\mathrm{D}\xspace_\mu \, \Phi) \underbrace{- \mu^2 \, \Phi^\dagger \, \Phi - \lambda {(\Phi^\dagger \, \Phi})^2}_{=-V(\Phi)} \quad \text{with} \quad \Phi =  \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix}
+        \mathcal{L}_\mathrm{Higgs} = \underbrace{(\mathrm{D}\xspace^\mu \, \Phi)^\dagger (\mathrm{D}\xspace_\mu \, \Phi)}_{\text{\textcolor{color2}{Kinetic}}} \underbrace{- \mu^2 \, \Phi^\dagger \, \Phi - \lambda {(\Phi^\dagger \, \Phi})^2}_{\text{\textcolor{color2}{Potential}}} \quad \text{with} \quad \Phi =  \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix}
     \end{gather*}
     \begin{itemize}
-        \item $V(\Phi)$ (Mexican hat hotential) contains two terms:
+        \item \textcolor{color2}{Potential} contains two terms:
         \begin{itemize}
             \item Mass term: $- \mu^2 \, \Phi^\dagger \, \Phi $: $\mu^2$ can be negative or positive
             \item Self-coupling term: $- \lambda (\Phi^\dagger \, \Phi)^2$: $\lambda$ is a dimensionless positive constant
@@ -87,9 +108,9 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Scalar Field $\Phi$}
+    \frametitle{Revenge of the Symmetry Breaking}
     \begin{itemize}
-        \item If $\mu^2>0$ there is only one ground state possible: $\av{\Phi}_0=0$
+        \item \sout{If $\mu^2>0$ there is only one ground state possible: $\av{\Phi}_0=0$}
         \item If $\mu^2<0$ there are multiple ground states:
     \end{itemize}
     \begin{gather*}
@@ -107,36 +128,36 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Expansion of the lagrangian with $\Phi(x)$ around $\av{\Phi}_0$}
+    \frametitle{The Mass Terms Awakens}
     \begin{itemize}
         \item Kinetic term $\abs{\mathrm{D}\xspace_\mu \, \Phi}^2$:
     \end{itemize}
     \begin{align*}
         %\abs{\covdif_\mu \, \Phi}^2 = \frac 1 2 \del{\partial_\mu \, H}^2 + \frac 1 8 \, g_2^2 \del{v+H}^2 \, \abs{W_\mu^1 + \im \, W_\mu^2}^2 + \frac 1 8 \del{v+H}^2 \, \abs{g_2 \, W_\mu^3 - g_1 \, B_\mu}^2
         \abs{\mathrm{D}\xspace_\mu \, \Phi}^2 &= \frac 1 8 \, v^2 \, g_2^2 \, \abs{W_\mu^1 + \im \, W_\mu^2}^2 + \frac 1 8 \, v^2 \, \abs{g_2 \, W_\mu^3 - g_1 \, B_\mu}^2 + \, \ldots \\
-        &= \frac 1 2 \, \textcolor{red}{m_W}^2 \, W_\mu^+ \, W^{- \mu} + \frac 1 2 \, \textcolor{red}{m_Z}^2 \, Z_\mu \, Z^\mu + \, \ldots
+        &= \frac 1 2 \, \textcolor{color2}{m_W}^2 \, W_\mu^+ \, W^{- \mu} + \frac 1 2 \, \textcolor{color2}{m_Z}^2 \, Z_\mu \, Z^\mu + \, \ldots
     \end{align*}
     \begin{itemize}
-        \item Mass terms occur for the weak gauge bosons!
+        \item \textcolor{color2}{Mass} terms occur for the weak gauge bosons!
         \item Potential of the lagrangian $V(x)$:
     \end{itemize}
     \begin{gather*}
-        V = \frac 1 2 \, \mu^2 \, (v+H)^2 + \frac 1 4 \, \lambda (v+H)^4 \quad \Rightarrow \quad \textcolor{red}{m_H} = -\sqrt 2 \, \mu = v \, \sqrt{2 \, \lambda}
+        V = \frac 1 2 \, \mu^2 \, (v+H)^2 + \frac 1 4 \, \lambda (v+H)^4 \quad \Rightarrow \quad \textcolor{color2}{m_H} = -\sqrt 2 \, \mu = v \, \sqrt{2 \, \lambda}
     \end{gather*}
     \begin{itemize}
-        \item Mass term for the Higgs Boson, the excitation of $H(x)$, occurs
+        \item \textcolor{color2}{Mass} term for the Higgs Boson, the excitation of $H(x)$, occurs
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Yukawa Interaction}
+    \frametitle{The Yukawa Interaction Strikes Back}
     \begin{itemize}
         \item The fermion masses can not be described by the Higgs mechanism, due to the chirality
-        \item An interaction between Dirac (fermion) fields and a scalar (Higgs) field is described by Yukawa interaction:
+        \item An interaction between \textcolor{color1}{Dirac (fermion) fields} and a \textcolor{color2}{scalar (Higgs) field} is described by Yukawa interaction:
     \end{itemize}
     \begin{gather*}
         \label{eq_lagrangian_yukawa}
-        \mathcal{L}_\mathrm{Yukawa} = - \lambda_f \, \ensuremath{\psi}\xspace_\mathrm{L}^\dagger \, \Phi \, \ensuremath{\psi}\xspace_\mathrm{R} = -\frac{1}{\sqrt 2} \, \lambda_f \, \ensuremath{\psi}\xspace^\dagger \, (v+H) \, \ensuremath{\psi}\xspace
+        \mathcal{L}_\mathrm{Yukawa} = - \lambda_f \, \textcolor{color1}{\ensuremath{\psi}\xspace_\mathrm{L}^\dagger} \, \textcolor{color2}{\Phi} \, \textcolor{color1}{\ensuremath{\psi}\xspace_\mathrm{R}}
     \end{gather*}
     \begin{itemize}
         \item Lagrangian for fermion mass:
@@ -276,7 +297,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{$13\,\text{TeV}$ $\&$ More Data...}
+	\frametitle{The Next Generation: $13\,\text{TeV}$ $\&$ More Data...}
 	\begin{columns}
 	\begin{column}{0.49\textwidth}
 		\begin{figure}[t]
@@ -296,22 +317,14 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{more on SM higgs...}
-	Higgs to tau tau 5.0 sigma \\
-	definitely: Higgs CP quantum number in ggH and VBF \\
-	maybe: ttH with DeepLearning (?)
-\end{frame}
-
-\begin{frame}
-	\frametitle{excursion to BSM Higgs...}
-	2HDM: MSSM neutral higgs to tau tau\\
-	maybe: charged higgs searches
+	\frametitle{Return of the Higgs Boson}
+	PLACEHOLDER: HIG-18-001
 \end{frame}
 
 \begin{frame}
 	\frametitle{what to expect from the future?}
 	find SUSY? \\
 	has higgs a CP odd admixture?\\
-	high luminosity upgrade of LHC
+	The Final Frontier: high luminosity upgrade of LHC
 \end{frame}
 \end{document}
