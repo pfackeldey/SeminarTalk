@@ -117,7 +117,7 @@
         \abs{\av{\Phi}_0}^2 = -\frac{\mu^2}{2 \, \lambda} \equiv \frac{v^2}{2} \quad \text{with} \quad v=\text{vacuum expectation value}
     \end{gather*}
     \begin{itemize}
-        \item In a general way without the loss of $\mathrm{SU}(2)$ invariance:
+        \item Without the loss of generality:
     \end{itemize}
     \begin{gather*}
         \av{\Phi}_0 = \frac{1}{\sqrt 2} \, \begin{pmatrix} 0 \\ v \end{pmatrix} \quad \Rightarrow \quad \Phi(x) = \frac{1}{\sqrt 2} \, \begin{pmatrix} 0 \\ v + H(x) \end{pmatrix}
@@ -170,6 +170,25 @@
         \item Yields: $m_f = \frac{v}{2} \, \lambda_f$ and $g_{Hff} = \frac{m_f}{v}$
     \end{itemize}
 \end{frame}
+
+
+{ % all template changes are local to this group.
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{plots/lhc.png}
+            };
+        \end{tikzpicture}
+     \end{frame}
+		 \begin{frame}[plain]
+         \begin{tikzpicture}[remember picture,overlay]
+             \node[at=(current page.center)] {
+                 \includegraphics[width=\paperwidth]{plots/cms.png}
+             };
+         \end{tikzpicture}
+      \end{frame}
+}
 
 \begin{frame}
     \frametitle{Higgsproduction Modes @ LHC (pp Collider)}
@@ -228,9 +247,9 @@
         Decay Channel                     & Branching Fraction & Characteristics      \\ \hline \hline
         $H \rightarrow b\overline{b}$     & $58.4\%$           & High QCD             \\ \hline
         $H \rightarrow W^+W^-$            & $21.4\%$           & Jets + MET           \\ \hline
-        $H \rightarrow \tau^+ \tau^-$     & $6.27\%$           & Jets + MET		      \\ \hline
-        $H \rightarrow ZZ \rightarrow 4l$ & $2.62\%$           & High mass resolution \\ \hline
-        $H \rightarrow \gamma \gamma$     & $0.227\%$          & High mass resolution \\
+        $H \rightarrow \tau^+ \tau^-$     & $6.3\%$           & Jets + MET		      \\ \hline
+        $\textcolor{color1}{H \rightarrow ZZ \rightarrow 4l}$ & $2.6\%$           & High mass resolution \\ \hline
+        $H \rightarrow \gamma \gamma$     & $0.2\%$          & High mass resolution \\
         \end{tabular}
         \end{table}
 		\end{center}
@@ -238,8 +257,41 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{SM $H \rightarrow ZZ \rightarrow 4l$ Search}
+	\begin{itemize}
+		\item 4 leptons in the final state: 4e, 4$\mu$, 2e2$\mu$
+		\item $Z$ candidates: opposite sign same flavour (OSSF) leptons with $12<m_{ll}<120$GeV
+		\item $ZZ$ candidates: 1 on-shell $Z$ boson and 1 off-shell $Z$ boson
+		\item Combine the leptons:
+		\begin{itemize}
+			\item On-shell $Z$ boson: $m_{ll} \approx 91$GeV
+			\item Off-shell $Z$ boson: the other combination
+		\end{itemize}
+		\item Remaining irreducible backgrounds: $ZZ$, $Z\gamma^*$, $Z$+$X$
+		\item $Z$+$X$: \textcolor{color2}{$Z$+jets}, $t\overline{t}$+jets, $Z\gamma$+jets, $WW$+jets and $WZ$+jets
+	\end{itemize}
+	\begin{figure}[t]
+		\centering \textcolor{color1}{$ZZ$, $Z\gamma^*$}\\
+		\vspace{0.25cm}
+		\centering \input{plots/feynman/feynman_background_ZZ}\\
+	\end{figure}
+\end{frame}
+
+\begin{frame}
     \frametitle{July 2012: Higgs Discovery @ CMS $\&$ ATLAS}
 	\begin{columns}
+		\begin{column}{0.49\textwidth}
+	        \begin{figure}[t]
+				\\
+				\vspace{-0.5cm}
+				\centering \textcolor{color1}{$H \rightarrow ZZ \rightarrow 4l$}\\
+	            \includegraphics[width=0.8\textwidth]{plots/higgsZZ_discovery.pdf}
+	        \end{figure}\\
+			\vspace{-0.9cm}
+			\begin{figure}[t]
+				\includegraphics[width=0.7\textwidth]{plots/atlas_event_display.png}
+	        \end{figure}
+	    \end{column}
     \begin{column}{0.49\textwidth}
         \begin{figure}[t]
 			\\
@@ -250,18 +302,6 @@
 		\vspace{-0.9cm}
 		\begin{figure}[t]
 			\includegraphics[width=0.7\textwidth]{plots/cms_event_display.png}
-        \end{figure}
-    \end{column}
-	\begin{column}{0.49\textwidth}
-        \begin{figure}[t]
-			\\
-			\vspace{-0.5cm}
-			\centering \textcolor{color1}{$H \rightarrow ZZ \rightarrow 4l$}\\
-            \includegraphics[width=0.8\textwidth]{plots/higgsZZ_discovery.pdf}
-        \end{figure}\\
-		\vspace{-0.9cm}
-		\begin{figure}[t]
-			\includegraphics[width=0.7\textwidth]{plots/atlas_event_display.png}
         \end{figure}
     \end{column}
 	\end{columns}
@@ -318,12 +358,90 @@
 
 \begin{frame}
 	\frametitle{Return of the Higgs Boson}
-	PLACEHOLDER: HIG-18-001
+	\begin{itemize}
+		\item Rediscovered with 2015/2016 Data!!!
+		\item HIG-18-001 Status: Currently @ preapproval
+		\item Signal region is still blinded
+		\item Improvements: b-tagging, new ttH categorization, electron ID
+	\end{itemize}
+	\begin{columns}
+	\begin{column}{0.49\textwidth}
+		\begin{figure}[t]
+			\\
+			\vspace{-0.5cm}
+			\centering \textcolor{color1}{2016 Data of $36.1 fb^{-1}$}\\
+			\includegraphics[width=0.9\textwidth]{plots/2016_goldenchannel.png}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.49\textwidth}
+		\begin{figure}[t]
+			\\
+			\vspace{-0.5cm}
+			\centering \textcolor{color1}{2017 Data of $41.8 fb^{-1}$}\\
+			\includegraphics[width=0.9\textwidth]{plots/2017_goldenchannel.png}
+		\end{figure}
+	\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
+	\frametitle{$H \rightarrow \tau\tau$ Discovery}
+	\begin{columns}
+	\begin{column}{0.49\textwidth}
+		\begin{figure}[t]
+			\\
+			\vspace{-0.5cm}
+			\centering \textcolor{color1}{$H \rightarrow e\tau_{h}, \mu\tau_{h}, e\mu$}\\
+			\includegraphics[width=1.\textwidth]{plots/higgstautau_otherchannel.png}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.49\textwidth}
+		\begin{figure}[t]
+			\\
+			\vspace{-0.5cm}
+			\centering \textcolor{color1}{$H \rightarrow \tau_{h}\tau_{h}$}\\
+			\includegraphics[width=1.\textwidth]{plots/higgstautau.png}
+		\end{figure}
+	\end{column}
+	\end{columns}
+  \begin{itemize}
+  	\item $H \rightarrow \tau\tau$ found with $5.9\sigma$
+		\item Best fit value: $\mu = 1.09_{-0.26}^{+0.27}$ at $m_{H} = 125.09$ GeV.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Properties of the Higgs boson}
+	\begin{itemize}
+		\item $m_H = 125.09 \pm 0.21 \text{(stat.)} \pm 0.11 \text{(syst.)}$ GeV
+		\item Coupling is proportional to fermion masses: $g_{Hff} = \frac{m_f}{v}$
+		\item Electrical charge: neutral, e.g. $H \rightarrow \tau^+\tau^-$ discovery
+		\item Spin: 0, $H \rightarrow \gamma\gamma$ discovery
+		\item No color charge: measured in e.g. $H \rightarrow b\overline{b}$
+		\item CP eigenvalue not measured yet; predicted to be +1
+	\end{itemize}
+	\begin{columns}
+	\begin{column}{0.49\textwidth}
+	\vspace{-0.9cm}\\
+	\begin{figure}[t]
+		\includegraphics[width=1.1\textwidth]{plots/higgsmass.png}
+	\end{figure}
+	\end{column}
+	\begin{column}{0.49\textwidth}
+	\vspace{-0.5cm}\\
+	\begin{figure}[b]
+		\includegraphics[width=0.85\textwidth]{plots/higgscoupling_masses.png}
+	\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}
 	\frametitle{HL-LHC - The Final Frontier?}
-	PLACEHOLDER: HL Upgrade
+	\begin{figure}[t]
+		\includegraphics[width=0.9\textwidth]{plots/hllhc.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}

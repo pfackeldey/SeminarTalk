@@ -1,0 +1,7 @@
+  %% Restart the numbering to make sure that this is definitely page #1!
+  \pagenumbering{arabic}
+
+  %% Actually, more semantic chapter filenames are better, like "chap-bgtheory.tex"
+  \input{intro}
+  \input{theory}
+  %% To ignore a specific chapter while working on another, making the build faster, comment it out

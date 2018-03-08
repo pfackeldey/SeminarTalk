@@ -1,0 +1,21 @@
+\begin{tikzpicture}[line width=1.5pt, scale=1.2]
+\draw[step=0.5cm, very thin, transparent] (0cm,0cm) grid (4cm,2cm);
+
+\draw[gluon] (0cm,0cm) -- (2cm,0cm);
+\node at (0cm-0.2cm,0cm) {$g$};
+
+\draw[gluon] (0cm,2cm) -- (2cm,2cm);
+\node at (0cm-0.2cm,2cm) {$g$};
+
+\draw[scalarnoarrow, color1, line width=3pt] (2cm,1cm) -- (4cm,1cm);
+\node at (4cm+0.3cm,1cm) [color1]{\PHiggs};
+
+\draw[fermion] (4cm,0cm) -- (2cm,0cm);
+\node at (4cm+0.4cm,0cm) {$\overline{t}$};
+
+\draw[fermion] (2cm,0cm) -- (2cm,1cm);
+\draw[fermion] (2cm,1cm) -- (2cm,2cm);
+
+\draw[fermion] (2cm,2cm) -- (4cm,2cm);
+\node at (4cm+0.4cm,2cm) {$t$};
+\end{tikzpicture}

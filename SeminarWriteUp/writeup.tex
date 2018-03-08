@@ -1,0 +1,29 @@
+\documentclass[a4paper,10pt,twoside,hyperpdf,fleqn]{hepthesis}
+
+\input{preamble}
+
+\title{New Results on Particle and Astroparticle Physics: Higgs Physics}
+\author{Peter Fackeldey}
+
+\begin{document}
+
+
+\begin{frontmatter}
+  \input{frontmatter}
+\end{frontmatter}
+
+\begin{mainmatter}
+  %% Restart the numbering to make sure that this is definitely page #1!
+  \pagenumbering{arabic}
+
+  %% Actually, more semantic chapter filenames are better, like "chap-bgtheory.tex"
+  \input{intro}
+  \input{theory}
+  %% To ignore a specific chapter while working on another, making the build faster, comment it out
+\end{mainmatter}
+
+% bib
+
+\bibliographystyle{latex/lucas_unsrt}
+\bibliography{writeup}
+\end{document}

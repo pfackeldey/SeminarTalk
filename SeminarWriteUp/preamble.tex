@@ -1,0 +1,344 @@
+\usepackage{listings}
+\usepackage{microtype}
+%\usepackage[fleqn]{amsmath}
+\usepackage[absolute]{textpos}
+\usepackage{xspace}
+\usepackage{morefloats,subfig,afterpage}
+\usepackage{mathrsfs} % script font
+\usepackage{verbatim}
+%\usepackage[prependcaption,textsize=small]{todonotes}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{pifont}
+\usepackage[percent]{overpic}
+\usepackage{commath}
+\usepackage{multirow}
+\usepackage[section]{placeins}
+\usepackage{amssymb}
+\usepackage[Bjornstrup]{fncychap}
+\usepackage{esint}
+%\usepackage{lineno}
+\usepackage{nicefrac}
+\usepackage[super]{nth}
+\usepackage{needspace}
+
+%\input{figures/latex/tikz_includes}
+% taken from
+% http://www.lns.cornell.edu/~pt267/files/code/TikZFeynman.tex
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{trees}
+\usetikzlibrary{matrix,arrows} 				% For commutative diagram
+											% http://www.felixl.de/commu.pdf
+\usetikzlibrary{positioning}				% For "above of=" commands
+\usetikzlibrary{calc,through}				% For coordinates
+\usetikzlibrary{decorations.pathreplacing}  % For curly braces
+% http://www.math.ucla.edu/~getreuer/tikz.html
+\usepackage{pgffor}							% For repeating patterns
+
+\usetikzlibrary{decorations.pathmorphing}	% For Feynman Diagrams
+\usetikzlibrary{decorations.markings}
+\tikzset{
+	>=stealth', %%  Uncomment for more conventional arrows
+    vector/.style={decorate, decoration={snake}, draw},
+	provector/.style={decorate, decoration={snake,amplitude=2.5pt}, draw},
+	antivector/.style={decorate, decoration={snake,amplitude=-2.5pt}, draw},
+    fermion/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow{>}}}},
+    fermionbar/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow{<}}}},
+    fermionnoarrow/.style={draw=black},
+    gluon/.style={decorate, draw=black,
+        decoration={coil,amplitude=4pt, segment length=5pt}},
+    scalar/.style={dashed,draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow{>}}}},
+    scalarbar/.style={dashed,draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow{<}}}},
+    scalarnoarrow/.style={dashed,draw=black},
+    electron/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow{>}}}},
+	bigvector/.style={decorate, decoration={snake,amplitude=4pt}, draw},
+}
+
+%% Using Babel allows other languages to be used and mixed-in easily
+%\usepackage[ngerman,english]{babel}
+\usepackage[english]{babel}
+\selectlanguage{english}
+
+%% Citation system tweaks
+\usepackage{cite}
+% \let\@OldCite\cite
+% \renewcommand{\cite}[1]{\mbox{\!\!\!\@OldCite{#1}}}
+
+\definecolor{color0}{RGB}{0,0,0} % Black
+\definecolor{color1}{RGB}{0,83,159} % RWTH blue
+\definecolor{color2}{RGB}{227,0,102} % RWTH magenta
+
+%% Maths
+% TODO: rework or eliminate maybemath
+\usepackage{latex/abmath}
+\DeclareRobustCommand{\mymath}[1]{\ensuremath{\maybebmsf{#1}}}
+% \DeclareRobustCommand{\parenths}[1]{\mymath{\left({#1}\right)}\xspace}
+% \DeclareRobustCommand{\braces}[1]{\mymath{\left\{{#1}\right\}}\xspace}
+% \DeclareRobustCommand{\angles}[1]{\mymath{\left\langle{#1}\right\rangle}\xspace}
+% \DeclareRobustCommand{\sqbracs}[1]{\mymath{\left[{#1}\right]}\xspace}
+% \DeclareRobustCommand{\mods}[1]{\mymath{\left\lvert{#1}\right\rvert}\xspace}
+% \DeclareRobustCommand{\modsq}[1]{\mymath{\mods{#1}^2}\xspace}
+% \DeclareRobustCommand{\dblmods}[1]{\mymath{\left\lVert{#1}\right\rVert}\xspace}
+% \DeclareRobustCommand{\expOf}[1]{\mymath{\exp{\!\parenths{#1}}}\xspace}
+% \DeclareRobustCommand{\eexp}[1]{\mymath{e^{#1}}\xspace}
+% \DeclareRobustCommand{\plusquad}{\mymath{\oplus}\xspace}
+% \DeclareRobustCommand{\logOf}[1]{\mymath{\log\!\parenths{#1}}\xspace}
+% \DeclareRobustCommand{\lnOf}[1]{\mymath{\ln\!\parenths{#1}}\xspace}
+% \DeclareRobustCommand{\ofOrder}[1]{\mymath{\mathcal{O}\parenths{#1}}\xspace}
+% \DeclareRobustCommand{\SOgroup}[1]{\mymath{\mathup{SO}\parenths{#1}}\xspace}
+% \DeclareRobustCommand{\SUgroup}[1]{\mymath{\mathup{SU}\parenths{#1}}\xspace}
+% \DeclareRobustCommand{\Ugroup}[1]{\mymath{\mathup{U}\parenths{#1}}\xspace}
+% \DeclareRobustCommand{\I}[1]{\mymath{\mathrm{i}}\xspace}
+% \DeclareRobustCommand{\colvector}[1]{\mymath{\begin{pmatrix}#1\end{pmatrix}}\xspace}
+\DeclareRobustCommand{\Rate}{\mymath{\Gamma}\xspace}
+\DeclareRobustCommand{\RateOf}[1]{\mymath{\Gamma}\parenths{#1}\xspace}
+
+%% High-energy physics stuff
+\usepackage{latex/abhep}
+\usepackage{hepnames}
+\usepackage{hepunits}
+
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
+% Some software programs (alphabetized)
+% from cms-tdr/utils/trunk/general/ptdr-definitions.sty
+\newcommand{\ACERMC} {\textsc{AcerMC}\xspace}
+\newcommand{\ALPGEN} {{\textsc{alpgen}}\xspace}
+\newcommand{\CALCHEP} {{\textsc{CalcHEP}}\xspace}
+\newcommand{\CHARYBDIS} {{\textsc{charybdis}}\xspace}
+\newcommand{\CMKIN} {\textsc{cmkin}\xspace}
+\newcommand{\CMSIM} {{\textsc{cmsim}}\xspace}
+\newcommand{\CMSSW} {{\textsc{CMSSW}}\xspace}
+\newcommand{\COBRA} {{\textsc{cobra}}\xspace}
+\newcommand{\COCOA} {{\textsc{cocoa}}\xspace}
+\newcommand{\COMPHEP} {\textsc{CompHEP}\xspace}
+\newcommand{\EVTGEN} {{\textsc{evtgen}}\xspace}
+\newcommand{\FAMOS} {{\textsc{famos}}\xspace}
+\newcommand{\FEWZ} {{\textsc{fewz}}\xspace}
+\newcommand{\GARCON} {\textsc{garcon}\xspace}
+\newcommand{\GARFIELD} {{\textsc{garfield}}\xspace}
+\newcommand{\GEANE} {{\textsc{geane}}\xspace}
+\newcommand{\GEANTfour} {{\textsc{Geant~4}}\xspace}
+\newcommand{\GEANTthree} {{\textsc{Geant~3}}\xspace}
+\newcommand{\GEANT} {{\textsc{Geant}}\xspace}
+\newcommand{\HDECAY} {\textsc{hdecay}\xspace}
+\newcommand{\HERWIG} {{\textsc{herwig}}\xspace}
+\newcommand{\HERWIGpp} {{\textsc{herwig++}}\xspace}
+\newcommand{\HIGLU} {{\textsc{higlu}}\xspace}
+\newcommand{\HIJING} {{\textsc{hijing}}\xspace}
+\newcommand{\IGUANA} {\textsc{iguana}\xspace}
+\newcommand{\ISAJET} {{\textsc{isajet}}\xspace}
+\newcommand{\ISAPYTHIA} {{\textsc{isapythia}}\xspace}
+\newcommand{\ISASUGRA} {{\textsc{isasugra}}\xspace}
+\newcommand{\ISASUSY} {{\textsc{isasusy}}\xspace}
+\newcommand{\ISAWIG} {{\textsc{isawig}}\xspace}
+\newcommand{\MADGRAPH} {\textsc{MadGraph}\xspace}
+\newcommand{\MCATNLO} {MC@NLO\xspace}
+\newcommand{\AMCATNLO} {aMC@NLO\xspace}
+\newcommand{\MCFM} {\textsc{mcfm}\xspace}
+\newcommand{\MILLEPEDE} {{\textsc{millepede}}\xspace}
+\newcommand{\ORCA} {{\textsc{orca}}\xspace}
+\newcommand{\OSCAR} {{\textsc{oscar}}\xspace}
+\newcommand{\PHOTOS} {\textsc{photos}\xspace}
+\newcommand{\POWHEG} {{\textsc{Powheg}}\xspace}
+\newcommand{\PROSPINO} {\textsc{prospino}\xspace}
+\newcommand{\PYTHIA} {{\textsc{Pythia}}\xspace}
+\newcommand{\SHERPA} {{\textsc{sherpa}}\xspace}
+\newcommand{\TAUOLA} {\textsc{Tauola}\xspace}
+\newcommand{\TOPREX} {\textsc{TopReX}\xspace}
+\newcommand{\XDAQ} {{\textsc{xdaq}}\xspace}
+
+\newcommand{\MADEVENT} {\textsc{MadEvent}\xspace}
+\newcommand{\ROOTCern} {\textsc{ROOT}\xspace}
+\newcommand{\TMVA} {\textsc{TMVA}\xspace}
+\newcommand{\HRES} {\textsc{HRES}\xspace}
+
+\DeclareRobustCommand{\arXivCode}[1]{arXiv:#1}
+\DeclareRobustCommand{\CP}{\ensuremath{\mathcal{CP}}\xspace}
+\DeclareRobustCommand{\CPviolation}{\CP-violation\xspace}
+\DeclareRobustCommand{\CPv}{\CPviolation}
+\DeclareRobustCommand{\LHCb}{LHCb\xspace}
+\DeclareRobustCommand{\LHC}{LHC\xspace}
+\DeclareRobustCommand{\LEP}{LEP\xspace}
+\DeclareRobustCommand{\CERN}{CERN\xspace}
+\DeclareRobustCommand{\HepMC}{HepMC\xspace}
+\DeclareRobustCommand{\TaNC}{TaNC\xspace}
+\DeclareRobustCommand{\HPS}{HPS\xspace}
+\DeclareRobustCommand{\WLCG}{WLCG\xspace}
+\DeclareRobustCommand{\bphysics}{\Pbottom-physics\xspace}
+\DeclareRobustCommand{\bhadron}{\Pbottom-hadron\xspace}
+\DeclareRobustCommand{\Bmeson}{\PB-meson\xspace}
+\DeclareRobustCommand{\bbaryon}{\Pbottom-baryon\xspace}
+\DeclareRobustCommand{\Bdecay}{\PB-decay\xspace}
+\DeclareRobustCommand{\bdecay}{\Pbottom-decay\xspace}
+\DeclareRobustCommand{\BToKPi}{\HepProcess{ \PB \to \PK \Ppi }\xspace}
+\DeclareRobustCommand{\BToPiPi}{\HepProcess{ \PB \to \Ppi \Ppi }\xspace}
+\DeclareRobustCommand{\BToKK}{\HepProcess{ \PB \to \PK \PK }\xspace}
+\DeclareRobustCommand{\BToRhoPi}{\HepProcess{ \PB \to \Prho \Ppi }\xspace}
+\DeclareRobustCommand{\BToRhoRho}{\HepProcess{ \PB \to \Prho \Prho }\xspace}
+\DeclareRobustCommand{\X}{\thesismath{X}\xspace}
+\DeclareRobustCommand{\Xbar}{\thesismath{\overline{X}}\xspace}
+\DeclareRobustCommand{\Xzero}{\HepGenParticle{X}{}{0}\xspace}
+\DeclareRobustCommand{\Xzerobar}{\HepGenAntiParticle{X}{}{0}\xspace}
+\DeclareRobustCommand{\epluseminus}{\Ppositron\!\Pelectron\xspace}
+\DeclareRobustCommand{\protonproton}{\Pproton\APantiproton\xspace}
+
+\DeclareRobustCommand{\vis}{\ensuremath{\mathrm{vis}}\xspace}
+\DeclareRobustCommand{\miss}{\ensuremath{\mathrm{miss}}\xspace}
+\DeclareRobustCommand{\transverse}[1]{\ensuremath{#1_\mathrm{T}}\xspace}
+\DeclareRobustCommand{\pt}{\ensuremath{\transverse{p}}\xspace}
+\DeclareRobustCommand{\vecpt}{\ensuremath{\transverse{\vec p}}\xspace}
+\DeclareRobustCommand{\abseta}{\ensuremath{\envert{\eta}}\xspace}
+\DeclareRobustCommand{\absetadel}[1]{\ensuremath{\envert{\eta\del{#1}}}\xspace}
+\DeclareRobustCommand{\met}{\ensuremath{\transverse{\cancel{E}}}\xspace}
+\DeclareRobustCommand{\vecmet}{\ensuremath{\transverse{\vec{\cancel{E}}}}\xspace}
+\DeclareRobustCommand{\antikt}{\ensuremath{\mathrm{anti-}k_t}\xspace}
+
+\DeclareRobustCommand{\leplep}{\ensuremath{\Pl\Pl}\xspace}
+\DeclareRobustCommand{\tautau}{\ensuremath{\Pgt\Pgt}\xspace}
+\DeclareRobustCommand{\ee}{\ensuremath{\Pe\Pe}\xspace}
+\DeclareRobustCommand{\em}{\ensuremath{\Pe\Pgm}\xspace}
+\DeclareRobustCommand{\et}{\ensuremath{\Pe\Pgth}\xspace}
+\DeclareRobustCommand{\mm}{\ensuremath{\Pgm\Pgm}\xspace}
+\DeclareRobustCommand{\mt}{\ensuremath{\Pgm\Pgth}\xspace}
+\DeclareRobustCommand{\tt}{\ensuremath{\Pgth\Pgth}\xspace}
+
+\DeclareRobustCommand{\zll}{\ensuremath{\PZ\to\Pl\Pl}\xspace}
+\DeclareRobustCommand{\zee}{\ensuremath{\PZ\to\Pe\Pe}\xspace}
+\DeclareRobustCommand{\zmm}{\ensuremath{\PZ\to\Pgm\Pgm}\xspace}
+\DeclareRobustCommand{\ztt}{\ensuremath{\PZ\to\Pgt\Pgt}\xspace}
+\DeclareRobustCommand{\zttmm}{\ensuremath{\PZ\to\Pgt\Pgt\to\Pgm\Pgm}\xspace}
+
+\DeclareRobustCommand{\jets}{\ensuremath{\text{jets}}\xspace}
+\DeclareRobustCommand{\bbbar}{\ensuremath{\Pbottom\APbottom}\xspace}
+\DeclareRobustCommand{\ttbar}{\ensuremath{\Pqt\Paqt}\xspace}
+\DeclareRobustCommand{\zjets}{\ensuremath{\PZ\!+\!\jets}\xspace}
+\DeclareRobustCommand{\wjets}{\ensuremath{\PW\!+\!\jets}\xspace}
+\DeclareRobustCommand{\ttjets}{\ensuremath{\ttbar\!+\!\jets}\xspace}
+\DeclareRobustCommand{\ww}{\ensuremath{\PW\PW}\xspace}
+\DeclareRobustCommand{\wz}{\ensuremath{\PW\PZ}\xspace}
+\DeclareRobustCommand{\zz}{\ensuremath{\PZ\PZ}\xspace}
+\DeclareRobustCommand{\diboson}{\ensuremath{\ww + \wz + \zz}\xspace}
+
+\DeclareRobustCommand{\ggh}{\ensuremath{\Pg\Pg\PH}\xspace}
+\DeclareRobustCommand{\qqh}{\ensuremath{\Pq\Pq\PH}\xspace}
+\DeclareRobustCommand{\vhtth}{\ensuremath{\PV\PH + \ttbar\PH}\xspace}
+\DeclareRobustCommand{\vh}{\ensuremath{\PV\PH}\xspace}
+\DeclareRobustCommand{\zh}{\ensuremath{\PZ\PH}\xspace}
+\DeclareRobustCommand{\wh}{\ensuremath{\PW\PH}\xspace}
+\DeclareRobustCommand{\tth}{\ensuremath{\ttbar\PH}\xspace}
+
+\DeclareRobustCommand{\hgg}{\ensuremath{\PH\to\Pgg\Pgg}\xspace}
+\DeclareRobustCommand{\hzz}{\ensuremath{\PH\to\PZ\PZ}\xspace}
+\DeclareRobustCommand{\hzzllll}{\ensuremath{\PH\to\PZ\PZ\to4\Pl}\xspace}
+\DeclareRobustCommand{\hww}{\ensuremath{\PH\to\PW\PW}\xspace}
+\DeclareRobustCommand{\hbb}{\ensuremath{\PH\to\Pqb\Pqb}\xspace}
+\DeclareRobustCommand{\htt}{\ensuremath{\PH\to\Pgt\Pgt}\xspace}
+\DeclareRobustCommand{\httmm}{\ensuremath{\PH\to\Pgt\Pgt\to\Pgm\Pgm}\xspace}
+\DeclareRobustCommand{\zhtt}{\ensuremath{\PZ/\PH\to\Pgt\Pgt}\xspace}
+\DeclareRobustCommand{\zhttmm}{\ensuremath{\PZ/\PH\to\Pgt\Pgt\to\Pgm\Pgm}\xspace}
+
+\DeclareRobustCommand{\Pgtl}{\HepParticle{\tau}{l}{}\xspace}
+\DeclareRobustCommand{\Pgth}{\HepParticle{\tau}{h}{}\xspace}
+\DeclareRobustCommand{\PV}{\HepParticle{V}{}{}\xspace}
+
+\DeclareRobustCommand{\catlowpt}{low-pt\xspace}
+\DeclareRobustCommand{\cathighpt}{high-pt\xspace}
+\DeclareRobustCommand{\catzerojet}{0-jet\xspace}
+\DeclareRobustCommand{\catzerojetlowpt}{\catzerojet \catlowpt\xspace}
+\DeclareRobustCommand{\catzerojethighpt}{\catzerojet \cathighpt\xspace}
+\DeclareRobustCommand{\catonejet}{1-jet\xspace}
+\DeclareRobustCommand{\catonejetlowpt}{\catonejet \catlowpt\xspace}
+\DeclareRobustCommand{\catonejethighpt}{\catonejet \cathighpt\xspace}
+\DeclareRobustCommand{\cattwojet}{2-jet\xspace}
+\DeclareRobustCommand{\cattwojetlowpt}{\cattwojet \catlowpt\xspace}
+\DeclareRobustCommand{\cattwojethighpt}{\cattwojet \cathighpt\xspace}
+\DeclareRobustCommand{\catvbf}{VBF\xspace}
+\DeclareRobustCommand{\catvbflowpt}{\catvbf \catlowpt\xspace}
+\DeclareRobustCommand{\catvbfhighpt}{\catvbf \cathighpt\xspace}
+
+\DeclareRobustCommand{\catzeroonejet}{0/1-jet\xspace}
+\DeclareRobustCommand{\catzeroonejetlowpt}{0/1-jet \catlowpt\xspace}
+\DeclareRobustCommand{\catzeroonejethighpt}{0/1-jet \cathighpt\xspace}
+
+\DeclareRobustCommand{\SM}{\ensuremath{\mathrm{SM}}\xspace}
+\DeclareRobustCommand{\BSM}{\ensuremath{\mathrm{BSM}}\xspace}
+\DeclareRobustCommand{\sigmasm}{\ensuremath{\sigma_{\SM}}\xspace}
+\DeclareRobustCommand{\BR}{\ensuremath{\mathcal{BR}}\xspace}
+
+\DeclareRobustCommand{\kappah}{\ensuremath{\kappa_{\PH}}\xspace}
+\DeclareRobustCommand{\kappatau}{\ensuremath{\kappa_{\Pgt}}\xspace}
+\DeclareRobustCommand{\kappamu}{\ensuremath{\kappa_{\Pgm}}\xspace}
+\DeclareRobustCommand{\kappatop}{\ensuremath{\kappa_{\Pqt}}\xspace}
+\DeclareRobustCommand{\kappab}{\ensuremath{\kappa_{\Pqb}}\xspace}
+\DeclareRobustCommand{\kappac}{\ensuremath{\kappa_{\Pqc}}\xspace}
+\DeclareRobustCommand{\kappas}{\ensuremath{\kappa_{\Pqs}}\xspace}
+\DeclareRobustCommand{\kappaw}{\ensuremath{\kappa_{\PW}}\xspace}
+\DeclareRobustCommand{\kappaz}{\ensuremath{\kappa_{\PZ}}\xspace}
+\DeclareRobustCommand{\kappagamma}{\ensuremath{\kappa_{\Pgg}}\xspace}
+\DeclareRobustCommand{\kappazgamma}{\ensuremath{\kappa_{\PZ\Pgg}}\xspace}
+\DeclareRobustCommand{\kappagluon}{\ensuremath{\kappa_{\Pg}}\xspace}
+\DeclareRobustCommand{\kappafermion}{\ensuremath{\kappa_{\Pf}}\xspace}
+\DeclareRobustCommand{\kappaboson}{\ensuremath{\kappa_{\PV}}\xspace}
+
+%\newcommand{\ve}[1]{\ensuremath{\boldsymbol{#1}}\xspace}
+\newcommand{\ve}[1]{\ensuremath{\vec{#1}}\xspace}
+
+\newcommand{\note}[1]{\ensuremath{\textrm{#1}\quad}\xspace}
+\newcommand{\inote}[1]{\ensuremath{\quad\note{#1}}\xspace}
+\newcommand{\con}{\ensuremath{\Rightarrow\quad}\xspace}
+\newcommand{\ccon}{\ensuremath{\Leftrightarrow\quad}\xspace}
+\newcommand{\icon}{\ensuremath{\quad\con}\xspace}
+\newcommand{\iccon}{\ensuremath{\quad\ccon}\xspace}
+
+\newcommand{\wave}{\ensuremath{\psi}\xspace}
+\newcommand{\e}{\ensuremath{\func{e}}\xspace}
+\newcommand{\im}{\ensuremath{\mathrm{i}}\xspace}
+\newcommand{\trafo}{\ensuremath{\; \to \;}\xspace}
+\newcommand{\func}[1]{\ensuremath{\mathrm{#1}}\xspace}
+\newcommand{\covdif}{\ensuremath{\mathrm{D}}\xspace}
+\newcommand{\weinberg}{\ensuremath{\mathrm{W}}\xspace}
+\newcommand{\av}[1]{\ensuremath{\langle #1 \rangle}\xspace}
+
+\newcommand{\leftlabel}{\ensuremath{\mathrm{L}}\xspace}
+\newcommand{\rightlabel}{\ensuremath{\mathrm{R}}\xspace}
+
+\DeclareRobustCommand{\CL}{\ensuremath{\mathrm{CL}}\xspace}
+\DeclareRobustCommand{\CLs}{\ensuremath{\CL_s}\xspace}
+\DeclareRobustCommand{\CLb}{\ensuremath{\CL_b}\xspace}
+\DeclareRobustCommand{\CLsb}{\ensuremath{\CL_{s+b}}\xspace}
+
+\hyphenation{bo-son}
+\hyphenation{bo-sons}
+\hyphenation{fer-mion}
+\hyphenation{fer-mions}
+
+
+\DeclareRobustCommand{\titlepage}[2][]{%
+  %\@oldtitlepage%
+  \thispagestyle{empty}%
+  \begingroup%
+  \ifx\@sftitles\@empty\else\sf\fi%
+  \begin{center}%
+    \vspace*{\frontmattertitleskip}%
+    \begin{doublespace}%
+      {\Huge\textbf{\thetitle}}\\%
+    \end{doublespace}%
+    \vspace*{3cm}%
+    {\Large{{\theauthor{}} \\ {#1}}}\\%
+    \vspace*{8cm}%
+    {#2}%
+  \end{center}%
+  \endgroup%
+  %\@oldendtitlepage%
+  %\cleardoublepage%
+}
